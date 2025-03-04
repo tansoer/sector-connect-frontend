@@ -1,0 +1,220 @@
+/* Apply Google Font */
+* {
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Page Container */
+.container {
+  max-width: 650px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+/* Header Section */
+.form-header {
+  margin-bottom: 20px;
+}
+
+.form-header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-subtext {
+  font-size: 16px;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* Form Card */
+.form-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Floating Label Input Field */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.input-group label {
+  position: absolute;
+  left: 14px;
+  top: 16px;
+  font-size: 16px;
+  color: #777;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.input-group input:focus {
+  border-color: #333;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.3);
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: 4px;
+  font-size: 12px;
+  color: #333;
+}
+
+/* Sector Dropdown Styles */
+.sector-dropdown {
+  list-style: none;
+  margin: 0;
+  background: #f9f9f9;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Sector Items */
+.sector-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  transition: background 0.3s ease;
+}
+
+/* Hover Effect */
+.sector-item:hover {
+  background: #e3e3e3;
+  border-radius: 5px;
+}
+
+/* Expand/Collapse Icons */
+.expand-icon {
+  font-size: 14px;
+  margin-right: 8px;
+  cursor: pointer;
+  color: #555;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate Icon When Expanded */
+.expanded .expand-icon {
+  transform: rotate(360deg);
+}
+
+/* Nested Sub-Sector List */
+.sub-sector-list {
+  list-style: none;
+  padding-left: 20px;
+}
+
+/* Modern Checkbox Icons */
+.custom-checkbox {
+  font-size: 22px;
+  color: #ccc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.custom-checkbox.checked {
+  color: black;
+}
+
+/* Slight hover effect */
+.custom-checkbox:hover {
+  color: dimgrey;
+}
+
+/* Align checkbox with text */
+.sector-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  transition: background 0.3s ease;
+}
+
+/* Hover Effect */
+.sector-item:hover {
+  background: #e3e3e3;
+  border-radius: 5px;
+}
+
+/* Save Button */
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 17px;
+  margin-top: 15px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Disabled Button */
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Checkbox Styling for "Agree to Terms" */
+.agree-container {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.agree-container label {
+  margin-left: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Smooth expand animation */
+.sub-sector-list {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* General Labels */
+form label {
+  font-size: 14px;
+  font-weight: normal;
+  color: #333;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+/* Sectors Title */
+.sectors-label {
+  font-size: 17px;
+  font-weight: 600;
+  color: #333;
+  padding-bottom: 10px;
+}

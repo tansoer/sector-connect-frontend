@@ -1,0 +1,62 @@
+/* Center the register container */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f4f6f8;
+}
+
+/* Card styling */
+.register-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+/* Form fields */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Checkbox */
+mat-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin: 15px 0;
+}
+
+/* Error Message */
+.error-message {
+  color: red;
+  font-size: 14px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+/* Register Button */
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+/* Login Text */
+.login-text {
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+}
+
+.login-text a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}

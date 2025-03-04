@@ -1,0 +1,64 @@
+<div class="container">
+  <!-- Header Section -->
+  <div class="form-header">
+    <h1>Welcome to Sector Connect</h1>
+    <p class="form-subtext">
+      Please enter your name and select the sectors you are currently involved in.
+    </p>
+  </div>
+
+  <!-- Form Card -->
+  <div class="form-card">
+    <form [formGroup]="userForm" (ngSubmit)="updateUser()">
+
+      <!-- User Name Input -->
+      <div class="input-group">
+        <input id="name" formControlName="name" placeholder=" " required />
+        <label for="name" *ngIf="isNameEmpty">Enter your name</label>
+      </div>
+
+      <!-- Sector Selection -->
+      <div class="sectors-label">Select Your Sectors:</div>
+
+      <ul class="sector-dropdown">
+        <ng-container *ngTemplateOutlet="recursiveSectorList; context: { sectors: sectors }"></ng-container>
+      </ul>
+
+      <ng-template #recursiveSectorList let-sectors="sectors">
+        <li *ngFor="let sector of sectors">
+          <div class="sector-item" (click)="sector.expanded = !sector.expanded">
+            <!-- Automatically expand/collapse parents when clicked -->
+            <fa-icon *ngIf="sector.subSectors?.length"
+                     [icon]="sector.expanded ? faChevronDown : faChevronRight"
+                     class="expand-icon">
+            </fa-icon>
+
+            <!-- Show checkbox only for selectable sectors -->
+            <fa-icon *ngIf="sector.selectable"
+                     [icon]="sector.selected ? faCheckSquare : faSquare"
+                     class="custom-checkbox"
+                     [ngClass]="{'checked': sector.selected}"
+                     (click)="toggleSelect(sector); $event.stopPropagation()">
+            </fa-icon>
+            {{ sector.name }}
+          </div>
+          <ul *ngIf="sector.expanded" class="sub-sector-list">
+            <ng-container *ngTemplateOutlet="recursiveSectorList; context: { sectors: sector.subSectors }"></ng-container>
+          </ul>
+        </li>
+      </ng-template>
+
+      <!-- Terms Agreement -->
+      <div class="agree-container" (click)="toggleAgreeToTerms()">
+        <fa-icon [icon]="userForm.get('agreedToTerms')?.value ? faCheckSquare : faSquare"
+                 [ngClass]="{'checked': userForm.get('agreedToTerms')?.value}"
+                 class="custom-checkbox">
+        </fa-icon>
+        <label>Agree to terms</label>
+      </div>
+
+      <!-- Save Button -->
+      <button type="submit" [disabled]="userForm.invalid">Save</button>
+    </form>
+  </div>
+</div>
