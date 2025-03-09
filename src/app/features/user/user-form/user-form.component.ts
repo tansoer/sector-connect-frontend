@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../core/api.service';
 import { faChevronRight, faChevronDown, faCheckSquare, faSquare } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { Sector } from '../../../models/sector.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-form',
@@ -21,6 +22,9 @@ export class UserFormComponent implements OnInit {
   userForm: FormGroup;
   sectors: Sector[] = [];
   selectedSectorIds: Set<number> = new Set();
+  isSaving = false;
+
+  private toast = inject(ToastrService);
 
   constructor(private fb: FormBuilder, private apiService: ApiService) {
     this.userForm = this.fb.group({
@@ -106,10 +110,16 @@ export class UserFormComponent implements OnInit {
   }
 
   updateUser(): void {
-    if (this.userForm.valid) {
-      this.apiService.updateUser(this.userForm.value).subscribe(response => {
-        console.log('User saved:', response);
-      });
-    }
+    this.isSaving = true;
+    this.apiService.updateUser(this.userForm.value).subscribe({
+      next: response => {
+        this.isSaving = false;
+        if (response) {
+          this.toast.success('User updated successfully!');
+        } else {
+          this.toast.error('Failed to update user.');
+        }
+      }
+    });
   }
 }
